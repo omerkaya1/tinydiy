@@ -4,6 +4,10 @@
 build-blinky: ## build blinky
 	tinygo flash --target=arduino ./cmd/blinky/main.go
 
+.PHONY: lbtn
+lbtn: ## build light button switch
+	tinygo flash --target=arduino ./cmd/lbtn/main.go
+
 .PHONY: help
 help: ## print this help and exit
 	@echo "Usage: make [target]"
