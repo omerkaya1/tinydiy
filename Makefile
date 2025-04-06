@@ -20,6 +20,10 @@ ctlp: ## build traffic and perestrian lights
 serial: ## build serial
 	tinygo flash --target=arduino ./cmd/serial/main.go
 
+.PHONY: mscp
+mscp: ## build mscp
+	tinygo flash --target=arduino ./cmd/mscp/main.go
+
 .PHONY: help
 help: ## print this help and exit
 	@echo "Usage: make [target]"
