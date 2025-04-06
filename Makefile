@@ -24,6 +24,10 @@ serial: ## build serial
 mscp: ## build mscp
 	tinygo flash --target=arduino ./cmd/mscp/main.go
 
+.PHONY: beep
+beep: ## build beep
+	tinygo flash --target=arduino ./cmd/beep/main.go
+
 .PHONY: help
 help: ## print this help and exit
 	@echo "Usage: make [target]"
