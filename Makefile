@@ -12,6 +12,10 @@ lbtn: ## build light button switch
 ctl: ## build traffic lights
 	tinygo flash --target=arduino ./cmd/ctl/main.go
 
+.PHONY: ctlp
+ctlp: ## build traffic and perestrian lights
+	tinygo flash --scheduler tasks --target=arduino ./cmd/ctlp/main.go
+
 .PHONY: help
 help: ## print this help and exit
 	@echo "Usage: make [target]"
