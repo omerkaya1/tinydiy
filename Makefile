@@ -16,6 +16,10 @@ ctl: ## build traffic lights
 ctlp: ## build traffic and perestrian lights
 	tinygo flash --scheduler tasks --target=arduino ./cmd/ctlp/main.go
 
+.PHONY: serial
+serial: ## build serial
+	tinygo flash --target=arduino ./cmd/serial/main.go
+
 .PHONY: help
 help: ## print this help and exit
 	@echo "Usage: make [target]"
