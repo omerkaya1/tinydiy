@@ -28,6 +28,10 @@ mscp: ## build mscp
 beep: ## build beep
 	tinygo flash --target=arduino ./cmd/beep/main.go
 
+.PHONY: stm32
+stm32: ## build stm32 nucleof7* blinky
+	tinygo flash --target=nucleo-f722ze ./cmd/stm32/main.go
+
 .PHONY: help
 help: ## print this help and exit
 	@echo "Usage: make [target]"
