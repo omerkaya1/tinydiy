@@ -7,28 +7,19 @@ package main
 import (
 	"machine"
 	"time"
+
+	"github.com/omerkaya1/tinydiy/internal/driver/buzzer"
 )
 
 func main() {
-	// init output config
-	outCfg := machine.PinConfig{Mode: machine.PinOutput}
-
 	// periferal
-	beepper := machine.D3
-	beepper.Configure(outCfg)
-
-	inCfg := machine.PinConfig{Mode: machine.PinInput}
-
-	btn := machine.D2
-	btn.Configure(inCfg)
-
+	beepper := buzzer.New(machine.D2)
 	for {
-		beepper.Low()
-		if btn.Get() {
-			beepper.High()
-			time.Sleep(time.Millisecond * 5000)
-			beepper.Low()
-		}
-		time.Sleep(time.Millisecond * 1000)
+		beepper.Beep(buzzer.BeepParams{
+			Count:    3,
+			Duration: time.Millisecond * 1000,
+			Delay:    time.Millisecond * 500,
+		})
+		time.Sleep(time.Millisecond * 5000)
 	}
 }
